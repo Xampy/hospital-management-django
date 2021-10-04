@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block headerTitle %} 
+    Liste des consultations
+{% endblock %}
+
+{% block headerSubTitle %} 
+    Voir les détails sur les consultations
+{% endblock %}
+
+
+{% block content %}
+	<div class="row mt-5">
+		<div class="col-md-8 mt-1">
+			<form method="GET">
+				 {% csrf_token %}
+				<div class="container-fluid p-0">
+					<div class="row mt-1">
+						<div class="col-md-3">
+							<select name="filter" class="form-control">
+								<option selected>Filtres</option>
+								<option value="motif">Par Motif</option>
+							</select>
+						</div>
+						<div class="col-md-7">
+							<input type="search" name="query" class="form-control" placeholder="rechercher">
+						</div>
+						<div class="col-md-2">
+							<button class="btn btn-primary">Rechercher</button>
+						</div>
+						<input type="hidden" name="action" value="search">
+
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="col-md-4 mt-2 text-right justify-contents-end" style="display: flex; justify-content: flex-end">
+			<a href="/consultations/ajout" class="btn btn-primary">Ajouter une consultation</a>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12 mx-auto">
+			<table class="table mt-5" style="font-size: 0.9em;">
+				<tr>
+					<th>Id</th>
+					<th>Date de la consultation</th>
+					<th>Patient</th>
+					<th>Motif</th>
+					<th>Medecin</th>
+		            <th>Diagnostic</th>
+		            <th>Acte Poser</th>
+		            <th>Action</th>
+				</tr>
+				{% for item in list_consultation %}
+					<tr>
+		                <td>{{ item.id }}</td>
+						<td>{{ item.dateConsultation }}</td>
+						<td>{{ item.patient.nom }} {{ item.patient.prenom }}</td>
+		                <td>{{ item.motif }}</td>
+		                <td>{{ item.medecin.nom }} {{ item.medecin.prenom }}</td>
+		                <td>{{ item.diagnostic }}</td>
+		                <td>{{ item.actePoser }}</td>
+
+						<td style="display: flex; justify-content: space-around">
+							<a href="/consultations/detail/{{ item.id }}" class="btn btn-outline-primary" style="marginl-left: 2px;">Detail</a>
+							<a href="." class="btn btn-outline-success">Modifer</a>
+							<a href="." class="btn btn-outline-danger">Supprimer</a>
+						</td>
+					</tr>
+					
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+
+
+{% endblock %}

@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block headerTitle %} 
+    Consultation
+{% endblock %}
+
+{% block headerSubTitle %} 
+    Conultaion numéro {{ consultation.id }}
+{% endblock %}
+
+
+{% block content %}
+	<div class="row mt-5">
+		<div class="col-md-1 mt-1">
+			<a href="{{ app.request.headers.get('referer') }}"></a>
+		</div>
+	</div>
+	<div class="row mt-5">
+		<div class="col-md-12 mt-1">
+			<table class="table mt-5" style="font-size: 0.9em;">
+				<tr>
+					<th>Date de la consultation</th>
+					<th>Temperature</th>
+					<th>Poids</th>
+					<th>Taille</th>
+					<th>Motif</th>
+		            <th>Diagnostic</th>
+		            <th>Acte Poser</th>
+				</tr>
+				<tr>
+					<td>{{ consultation.dateConsultation }}</td>
+					<td>{{ consultation.temperature }}</td>
+					<td>{{ consultation.poids }}</td>
+					<td>{{ consultation.taille }}</td>
+					<td>{{ consultation.motif }}</td>
+		            <td>{{ consultation.diagnostic }}</td>
+		            <td>Acte Poser</td>
+				</tr>
+			</table>
+
+		</div>
+	</div>
+
+
+	<div class="row mt-5">
+		<div class="col-md-6 mt-1">
+			<h2>Medecin</h2>
+			<table class="table mt-5" style="font-size: 0.9em;">
+				<tr>
+					<th>Nom</th>
+					<th>Prenom</th>
+					<th>Date de Naissance</th>
+					<th>Spécialité</th>
+					<th>Secteur</th>
+				</tr>
+				<tr>
+					<td>{{ consultation.medecin.nom }}</td>
+					<td>{{ consultation.medecin.prenom }}</td>
+					<td>{{ consultation.medecin.dateNaissance }}</td>
+					<td>{{ consultation.medecin.specialite }}</td>
+		            <td>{{ consultation.medecin.secteur }}</td>
+				</tr>
+			</table>
+
+		</div>
+
+		<div class="col-md-4 offset-md-2 mt-1">
+			<h2>Patient</h2>
+			<table class="table mt-5" style="font-size: 0.9em;">
+				<tr>
+					<th>Nom</th>
+					<th>Prenom</th>
+				</tr>
+				<tr>
+					<td>{{ consultation.patient.nom }}</td>
+					<td>{{ consultation.patient.prenom }}</td>
+				</tr>
+			</table>
+
+		</div>
+	</div>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+
+
+{% block headerTitle %} 
+    Liste des patients
+{% endblock %}
+
+{% block headerSubTitle %} 
+    Voir les détails des patients ou enrégistrer un patient
+{% endblock %}
+
+
+{% block content %}
+	<div class="row mt-5">
+		<div class="col-md-8 mt-1">
+			<form>
+				<div class="container-fluid p-0">
+					<div class="row mt-1">
+						<div class="col-md-3">
+							<select class="form-control">
+								<option selected>Filtres</option>
+								<option>Nom</option>
+								<option>Prenom</option>
+								<option>Profession</option>
+								<option>Assure </option>
+					            <option>Assurance</option>
+							</select>
+						</div>
+						<div class="col-md-7">
+							<input type="search" name="" class="form-control" placeholder="rechercher">
+						</div>
+						<div class="col-md-2">
+							<button class="btn btn-primary">Rechercher</button>
+						</div>
+
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="col-md-4 mt-2 text-right justify-contents-end" style="display: flex; justify-content: flex-end">
+			<a href="/patients/ajout" class="btn btn-primary">Ajouter un un patient</a>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12 mx-auto">
+			<table class="table mt-5" style="font-size: 0.9em;">
+				<tr>
+					<th>N° </th>
+					<th>Nom</th>
+					<th>Prenom</th>
+					<th>Date de Naissance</th>
+					<th>Profession</th>
+					<th>Assure </th>
+		            <th>Assurance</th>
+					<th>Action</th>
+				</tr>
+				{% for item in list_patient %}
+					<tr>
+						<td>{{ item.id }}</td>
+						<td>{{ item.nom }}</td>
+						<td>{{ item.prenom }}</td>
+						<td>{{ item.dateNaissance }}</td>
+						<td>{{ item.profession }}</td>
+		                <td>{{ item.assure}}</td>
+						<td>{{ item.assurance }}</td>
+						<td>
+						<td style="display: flex; justify-content: space-around">
+							<a href="." class="btn btn-outline-primary" style="marginl-left: 2px;">Detail</a>
+							<a href="." class="btn btn-outline-success">Modifer</a>
+							<a href="." class="btn btn-outline-danger">Supprimer</a>
+						</td>
+					</tr>
+					
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+
+
+{% endblock %}
+

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+
+{% block headerTitle %} 
+    Liste des maladies
+{% endblock %}
+
+{% block headerSubTitle %} 
+    Voir les détails sur les maladies
+{% endblock %}
+
+
+{% block content %}
+	<div class="row mt-5">
+		<div class="col-md-8 mt-1">
+			<form>
+				<div class="container-fluid p-0">
+					<div class="row mt-1">
+						<div class="col-md-3">
+							<select class="form-control">
+								<option selected>Filtres</option>
+								<option>Par Libelle</option>
+							</select>
+						</div>
+						<div class="col-md-7">
+							<input type="search" name="" class="form-control" placeholder="rechercher">
+						</div>
+						<div class="col-md-2">
+							<button class="btn btn-primary">Rechercher</button>
+						</div>
+
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="col-md-4 mt-2 text-right justify-contents-end" style="display: flex; justify-content: flex-end">
+			<a href="/medecins/ajout" class="btn btn-primary">Ajouter une maladie</a>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12 mx-auto">
+			<table class="table mt-5" style="font-size: 0.9em;">
+				<tr>
+					<th>Id</th>
+					<th>Libelle</th>
+					<th>Action</th>
+				</tr>
+				{% for maladie in list_maladie %}
+					<tr>
+		                <td>{{ maladie.id }}</td>
+						<td>{{ maladie.libelle }}</td>
+
+						<td style="display: flex; justify-content: space-around">
+							<a href="." class="btn btn-outline-primary" style="marginl-left: 2px;">Detail</a>
+							<a href="." class="btn btn-outline-success">Modifer</a>
+							<a href="." class="btn btn-outline-danger">Supprimer</a>
+						</td>
+					</tr>
+					
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+
+
+{% endblock %}

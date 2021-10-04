@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Gestion d'hopital
+    </title>
+    <styles>
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    </styles>
+
+</head>
+
+<body>
+
+    {% include 'navbar.html' %}
+    
+    <div class="container-fluid m-0">
+        <div class="row bg-primary" style="height: 50vh; align-items: center;">
+            <div class="col-md-12 text-white text-center">
+                <h1>
+                    {% block headerTitle %} 
+                        Hopitanx
+                    {% endblock %}
+                </h1>
+                <p>
+                    {% block headerSubTitle %} 
+                        Gérons nos médecins, consulations etc...
+                    {% endblock %}
+                    
+                </p>
+                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10 mx-auto">
+                <div class="container-fluid">
+                    {% block content %}
+                        <div class="row">
+                            <div class="col-md-4 text-center" style="align-items: center">
+                                <div class="home-rounded-div">
+                                    hgh
+                                </div>
+                                <div>
+                                    <h5>Medecins</h5>
+                                    <p>Renseignez vous sur vos medecins</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endblock %}
+                    
+                </div>
+            </div>
+        
+    </div>
+
+    <footer>
+        Copyright @ Licence 2 2021
+    </footer>
+</body>
+
+</html>

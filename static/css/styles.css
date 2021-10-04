@@ -1,0 +1,16 @@
+footer {
+	height: 150px;
+	bottom: 0;
+	background-color: whitesmoke;
+	padding: 10px;
+	padding-top: 100px;
+	padding-bottom: 100px;
+	margin-top: 50px
+}
+
+.home-rounded-div {
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+	background-color: red;
+}
